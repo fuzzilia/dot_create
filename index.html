@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <title>dotCreator</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <script src="./js/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<div class="root">
+  <div class="title">dotCreator</div>
+  <div class="summary">
+    ドット絵を16進数表示の配列に変換するツールです。サーバとの通信は一切行っていないので安心してお使いください。<br>
+    ※RPicoBoyで表示した際、黒と白が反転するので注意してください。
+  </div>
+  <div class="main">
+    <!-- ボタンなどツール関係の領域 -->
+    <div class="tools">
+      <div class="canvas-size-coordinate-area">
+        <div class="canvas-size-area">
+          キャンバスサイズ：
+          <select name="dot-size">
+            <option value="160">4x4</option>
+            <option value="80">8x8</option>
+            <option value="40" selected>16x16</option>
+            <option value="20">32x32</option>
+            <option value="10">64x64</option>
+          </select>
+        </div>
+        <div class="canvas-coordinate-text-area">
+          　キャンバス上のマウス座標：(x, y) = 
+        </div>
+        <div class="canvas-coordinate-area">
+          <div id="coordinate">(null, null)</div>
+        </div>
+      </div>
+      <div class="canvas-pen-area">
+        <input name="pen-type" type="radio" value="pen" checked>ペン
+        <input name="pen-type" type="radio" value="eraser">消しゴム
+        <button id="clear-btn" type="button" onclick="clearConfirm('canvas0')">クリア</button>
+        <button id="reverse-btn" type="button" onclick="reverseCanvas('canvas0')">ドット反転</button>
+        <button id="copy-btn" type="button" onclick="copyText('text-area')">16進数配列コピー</button>
+        <button id="paste-btn" type="button" onclick="pasteText('text-area')">16進数配列ペースト</button>
+        <button id="hexToCanvas-btn" type="button" onclick="hexToCanvas('canvas0')">16進配列反映</button>
+      </div>
+      <div class="canvas-hex-area">
+        16進数配列<textarea id="text-area" rows="3" cols="80" style="resize: none;"></textarea>
+      </div>
+    </div>
+    <!-- ドットを描くキャンバス領域 -->
+    <div id="canvas-space" class="draw-space">
+      <canvas id="canvas0" class="paint" width="640" height="640"></canvas>
+      <canvas id="canvas-grid" class="grid" width="640" height="640"></canvas>
+    </div>
+  </div>
+</div>
+<script src="./js/script.js"></script>
+</body>
+</html>

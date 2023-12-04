@@ -1,0 +1,143 @@
+html {
+  width : 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  width: 680px;
+  height: 900px;
+  margin: 10;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+canvas {
+  /* キャンバス */
+  position: absolute;
+}
+
+canvas.paint {
+  /* ドットが書かれるレイヤー */
+  z-index: 1;
+}
+
+canvas.grid {
+  /* グリッドのレイヤー */
+  z-index: 2;
+}
+
+div.root {
+  /* 表示させる領域 */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2px 2px;
+}
+
+div.title {
+  /* タイトル */
+  display: flex;
+  flex: 1;
+  font-size: 22px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+div.main {
+  /* メイン */
+  display: flex;
+  flex: 20;
+  flex-direction: column;
+}
+
+div.summary {
+  /* 画面上部の概要部分 */
+  display: flex;
+  flex: 0.8;
+  align-items: center;
+  font-size: 12px;
+}
+
+div.tools {
+  /* ツール部分 */
+  display: flex;
+  flex: 0.3;
+  flex-direction: column;
+}
+
+div.draw-space {
+  /* ドット作成部分 */
+  display: flex;
+  flex: 1.5;
+  align-items: flex-start;
+}
+
+div.canvas-size-coordinate-area {
+  /* canvasサイズ座標エリア部分 */
+  display: flex;
+  flex: 0.5;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div.canvas-size-area {
+  /* canvasサイズエリア部分 */
+  display: flex;
+  flex: 1.5;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div.canvas-coordinate-text-area {
+  /* canvasサイズエリア部分 */
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+div.canvas-coordinate-area {
+  /* canvas座標エリア部分 */
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div.canvas-hex-area {
+  /* 16進数配列エリア部分 */
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div.canvas-hex-btn-area {
+  /* 16進数配列ボタンエリア部分 */
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: left;
+}
+
+div.canvas-pen-area {
+  /* ペンエリア部分 */
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
