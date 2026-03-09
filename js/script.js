@@ -266,6 +266,41 @@ function reverseCanvas(targetId) {
   dotCanvasToHexArray(targetId);
 }
 
+// rotateCanvas
+function rotateCanvas(targetId) {
+  const context = $("#"+targetId)[0].getContext("2d", {willReadFrequently: true});
+  let grid_max_w = canvasWidth / dotSize;
+  let grid_max_h = canvasHeight / dotSize;
+
+  let rotate_dot_array = [];
+
+  // dot rotate
+  for (let j = 0; j < grid_max_w; j++) {
+    const x = j * dotSize + Math.floor(dotSize / 2);
+    let row_dot_array = [];
+    for (let i = grid_max_h-1; i >= 0; i--) {
+      const y = i * dotSize + Math.floor(dotSize / 2);
+      const colorData = context.getImageData(x, y, 1, 1);
+      let color = 'white';
+      if (isBlackColor(colorData)) {
+        color = 'black';
+      }
+      row_dot_array.push(color);
+    }
+    rotate_dot_array.push(row_dot_array);
+  }
+
+  // canvas update
+  for (let i = 0; i < grid_max_w; i++) {
+    for (let j = 0; j < grid_max_h; j++) {
+      drawRect(context, j*dotSize+DOT_CONVERT.BORDER, i*dotSize+DOT_CONVERT.BORDER, dotSize-DOT_CONVERT.BORDER, dotSize-DOT_CONVERT.BORDER, rotate_dot_array[i][j]);
+    }
+  }
+
+  // hex update
+  dotCanvasToHexArray(targetId);
+}
+
 // hexAttay to Canvas
 function hexToCanvas(targetId) {
   const hexStr = $("#text-area").val();
